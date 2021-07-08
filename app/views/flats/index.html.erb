@@ -1,41 +1,27 @@
-<nav class="navbar navbar-expand-xl navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Simple Airbnb</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse show" id="navbarBasic">
-      <form class="ml-auto flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-
-
-
 <div class="container">
   <h1 class="my-5">All our Flats </h1>
   <h4 class="my-5">All our <%= Flat.count %> flats </h4>
   
   <div class="row">
-    <div class="col-4">
-        <% @flats.each do |flat| %>
-            <div class="card-trip">
-                <img src= "<%= flat.image %>" />
-                <div class="card-trip-infos">     
+    <% @flats.each do |flat| %>
+      <div class="col-4">
+          <div class="card-trip">
+              <img src= "<%= flat.image %>" />
+              <div class="card-trip-infos">  
+                <div>  
                     <%= link_to flat_path(flat) do %>
                         <h2><%= flat.name %></h2>
                     <% end %>
                     <p><%= flat.address %></p>
-                    <h2 class="card-trip-pricing"><i class="fas fa-dollar-sign"></i><%= flat.price_per_night %></h2>
-                    <h2 class="card-trip-guests"><i class="fas fa-users"></i><%= flat.number_of_guests %></h2>
+                    <div class="d-flex justify-content-between">  
+                      <h2 class="card-trip-pricing"><i class="fas fa-dollar-sign"></i>  <%= flat.price_per_night %></h2>
+                      <h2 class="card-trip-guests"><i class="fas fa-users">  <%= flat.number_of_guests %></i></h2>
+                    </div>
+                    </div> 
                 </div>
-            </div>
-        <% end %>
-    </div>
+          </div>
+      </div>
+    <% end %>
 </div>
 
 

@@ -1,1 +1,6 @@
-@import "flats.scss";
+@import "flats";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+.form-right {
+    justify-self: flex-end;
+}

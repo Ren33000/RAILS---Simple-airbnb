@@ -14,16 +14,15 @@ class FlatsController < ApplicationController
     def create
          @flat = Flat.new(flat_params)
         if @flat.save
-        redirect_to flat_path(@flat)
+            redirect_to flat_path(@flat)
         else
-        render 'new'
+            render 'new'
         end
     end
 
     private
-    def flat_params 
-        params.require(:restaurant).permit(:name, :address, :phone_number, :category)
-    end
-end
 
+    def flat_params 
+       params.require(:flat).permit(:name, :address, :price_per_night, :number_of_guests, :description, :image)
+    end
 end
