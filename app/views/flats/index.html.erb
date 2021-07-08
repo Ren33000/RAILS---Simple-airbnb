@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="my-5">All our Flats </h1>
+  <h4 class="my-5">All our <%= Flat.count %> flats </h4>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-6 col-lg-4">
+        <%= link_to flat_path(flat) do %>
+          <div class="shadow rounded p-3 mb-3">
+            <h3 class="mb-3"><%= flat.name %></h3>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+   <%# <%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-info" %> %>
